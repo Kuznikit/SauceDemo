@@ -4,15 +4,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.util.concurrent.TimeUnit;
+
 public class BaseTest {
     WebDriver driver;
     @BeforeMethod
     public void setup(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     @AfterMethod(alwaysRun = true)
     public void tearDown(){
-        driver.quit();
+       // driver.quit();
     }
 }
