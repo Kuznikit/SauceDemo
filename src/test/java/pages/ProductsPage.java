@@ -1,6 +1,8 @@
 package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductsPage extends BasePage {
 
@@ -16,6 +18,7 @@ public class ProductsPage extends BasePage {
 
     public void open() {
         driver.get(BASE_URL + "/inventory.html");
+    wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE)); //ожидалка что элемент открыт
     }
 
     public String getHeader() {
