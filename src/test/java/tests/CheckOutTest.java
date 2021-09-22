@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 public class CheckOutTest extends BaseTest {
-    @Test
+    @Test(description = "Button Checkout should work", retryAnalyzer = Retry.class)
     public void buttonCheckout() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -11,7 +11,8 @@ public class CheckOutTest extends BaseTest {
         checkOutPage.open();
         assertTrue(checkOutPage.getContinue(),"Checkout is not working");
     }
-    @Test
+
+    @Test(description = "First Name is required field", retryAnalyzer = Retry.class)
     public void firstNameWithOutSymbols() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -20,7 +21,8 @@ public class CheckOutTest extends BaseTest {
         checkOutPage.information("","abc","11111");
         assertTrue(checkOutPage.getError(),"Error: First Name is required");
     }
-    @Test
+
+    @Test(description = "Last Name is required field", retryAnalyzer = Retry.class)
     public void lastNameWithOutSymbols() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -29,7 +31,8 @@ public class CheckOutTest extends BaseTest {
         checkOutPage.information("abc","","11111");
         assertTrue(checkOutPage.getError(),"Error: Last Name is required");
     }
-    @Test
+
+    @Test(description = "Postal Code is required field", retryAnalyzer = Retry.class)
     public void postalNameWithOutSymbols() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -38,7 +41,8 @@ public class CheckOutTest extends BaseTest {
         checkOutPage.information("abc","abc","");
         assertTrue(checkOutPage.getError(),"Error: Postal Code is required");
     }
-    @Test
+
+    @Test(description = "Button Continue should work", retryAnalyzer = Retry.class)
     public void buttonContinue() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
