@@ -1,11 +1,9 @@
 package tests;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 public class CartTest extends BaseTest {
 
-    @Test
+    @Test(description = "Buy one product, add to cart", retryAnalyzer = Retry.class)
     public void buyOneProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -14,7 +12,7 @@ public class CartTest extends BaseTest {
         assertEquals(cartPage.getProductOne(), "Sauce Labs Backpack", "Product is not added");
     }
 
-    @Test
+    @Test(description = "Buy two products, add to cart", retryAnalyzer = Retry.class)
     public void buyTwoProducts() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -25,7 +23,7 @@ public class CartTest extends BaseTest {
         assertEquals(cartPage.getProductTwo(), "Sauce Labs Bike Light", "Product is not added");
     }
 
-    @Test
+    @Test(description = "Buy one product, add to cart, remove from cart", retryAnalyzer = Retry.class)
     public void buyProductAndRemove() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -33,7 +31,7 @@ public class CartTest extends BaseTest {
         productPage.removeProduct("Sauce Labs Backpack");
     }
 
-    @Test
+    @Test(description = "Buy one product, add to cart, remove from shopping cart", retryAnalyzer = Retry.class)
     public void buyProductAndRemoveInShoppingCartContainer() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");

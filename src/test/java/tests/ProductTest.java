@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 
 public class ProductTest extends BaseTest{
-    @Test
+    @Test(description = "Product Link should work", retryAnalyzer = Retry.class)
     public void linkElement() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
