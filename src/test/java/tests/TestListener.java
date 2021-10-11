@@ -1,5 +1,7 @@
 package tests;
 
+import com.google.j2objc.annotations.Weak;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -26,6 +28,8 @@ public class TestListener implements ITestListener {
     //API request to Qase to set red status
     // screenshot
     public void onTestFailure(ITestResult iTestResult) {
+       WebDriver driver = (WebDriver) iTestResult.getTestContext().getAttribute("driver");
+        AllureUtils.takeScreenshot(driver);//для создания скриншота
         System.out.println(String.format("======================================== FAILED TEST %s Duration: %ss ========================================", iTestResult.getName(),
                 getExecutionTime(iTestResult)));
     }
