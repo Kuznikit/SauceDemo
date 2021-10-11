@@ -9,7 +9,7 @@ public class CartTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productPage.addToCart("Sauce Labs Backpack");
         cartPage.open();
-        assertEquals(cartPage.getProductOne(), "Sauce Labs Backpack", "Product is not added");
+        assertEquals(cartPage.getProductOne(), "Sauce Labs BackpackProverka", "Product is not added");
     }
 
     @Test(description = "Buy two products, add to cart", retryAnalyzer = Retry.class)

@@ -3,6 +3,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
 
@@ -20,7 +21,7 @@ public class BaseTest {
     @Parameters("browser")
 
     @BeforeMethod
-    public void setup(@Optional("chrome") String browser) {
+    public void setup(@Optional("chrome") String browser, ITestContext context) {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
@@ -28,6 +29,7 @@ public class BaseTest {
             WebDriverManager.operadriver().setup();
             driver = new OperaDriver();
         }
+        context.setAttribute("driver", driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         productPage = new ProductsPage(driver);
@@ -38,6 +40,8 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(){
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

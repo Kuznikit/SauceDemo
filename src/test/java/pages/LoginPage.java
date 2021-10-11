@@ -1,6 +1,8 @@
 package pages;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import tests.AllureUtils;
 
 public class LoginPage extends BasePage {
     private static final By USERNAME = By.id("user-name");
@@ -19,7 +21,9 @@ public class LoginPage extends BasePage {
 
     }
 
+    @Step("Login using credential: '{user}' and '{password}'")
     public void login(String user, String password) {
+        AllureUtils.takeScreenshot(driver);//для создания скриншота
         driver.findElement(USERNAME).sendKeys(user);
         driver.findElement(PASSWORD).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();

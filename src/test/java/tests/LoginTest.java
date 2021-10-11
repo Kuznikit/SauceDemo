@@ -1,9 +1,17 @@
 package tests;
+import io.qameta.allure.Description;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
+    @TmsLink("TMS-1")
+    @Issue("TMS-123")//номер тикета
     @Test(description = "Login Valid login should work")
+    @Description("test on validlogin")
+    @Link("http://tut.by")//ссылка на документацию
     public void validLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
