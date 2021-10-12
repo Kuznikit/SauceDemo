@@ -7,26 +7,46 @@
             <class name="tests.LoginTest"/>
         </classes>
     </test>
-
+    <test name="LoginTest">
+        <parameter name="browser" value="opera"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
     <test name="ProductTest">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.ProductTest"/>
         </classes>
     </test>
-
+    <test name="ProductTest">
+        <parameter name="browser" value="opera"/>
+        <classes>
+            <class name="tests.ProductTest"/>
+        </classes>
+    </test>
     <test name="CartTest">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.CartTest"/>
         </classes>
     </test>
-
+    <test name="CartTest">
+        <parameter name="browser" value="opera"/>
+        <classes>
+            <class name="tests.CartTest"/>
+        </classes>
+    </test>
     <test name="CheckOutTest">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.CheckOutTest"/>
         </classes>
     </test>
-
+    <test name="CheckOutTest">
+        <parameter name="browser" value="opera"/>
+        <classes>
+            <class name="tests.CheckOutTest"/>
+        </classes>
+    </test>
 </suite>
