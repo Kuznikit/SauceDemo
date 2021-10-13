@@ -9,6 +9,9 @@ jobs:
       - image: circleci/openjdk:11.0.8-jdk-browsers
     steps:
       - checkout
+      - run:
+          - name: Checking chrome version
+            - command: chrome --version
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "pom.xml" }}
@@ -18,7 +21,6 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-
       - run:
           name: Running tests
           command: mvn clean test
