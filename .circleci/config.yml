@@ -10,8 +10,8 @@ jobs:
     steps:
       - checkout
       - run:
-          - name: Checking chrome version
-            - command: chrome --version
+          name: Checking chrome version
+          command: chrome --version
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "pom.xml" }}
