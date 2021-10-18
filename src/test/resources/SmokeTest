@@ -11,4 +11,13 @@
         </classes>
 
     </test>
+    <test name="Thread # 2">
+        <parameter name="browser" value="opera"></parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.CartTest"/>
+            <class name="tests.CheckOutTest"/>
+            <class name="tests.ProductTest"/>
+        </classes>
+    </test> <!-- Test -->
 </suite>
