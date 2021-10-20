@@ -8,10 +8,10 @@ import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
     @TmsLink("TMS-1")
-    @Issue("TMS-123")//номер тикета
+    @Issue("TMS-123")//number of ticket
     @Test(description = "Login Valid login should work")
     @Description("test on validlogin")
-    @Link("http://tut.by")//ссылка на документацию
+    @Link("http://tut.by")//link on the documentation
     public void validLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
